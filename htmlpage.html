@@ -1,0 +1,38 @@
+<!
+Leigh Rowell
+ID: 219309149
+SIT210
+Ontrack Task 4.2HD
+-->
+
+<!DOCTYPE html>
+<html>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<body>
+    <h1 style="text-align:center";>Leigh Rowell - SIT210 - Ontrack 4.2HD</h1>
+    <h3 style="text-align:center";>Click the buttons below to change the status of the LED light</h3>
+    
+    <div style="text-align:center";>
+        <br><br> 
+            <button type = "button" id="fbtn" onclick="setDir('red')" > Red LED </button>
+        <br><br>
+            <button type = "button" id="fbtn" onclick="setDir('blue')" > Blue LED </button>
+        <br><br>
+            <button type = "button" id="fbtn" onclick="setDir('green')" > Green LED </button>
+        <br><br>
+    </div>
+
+    <script type="text/javascript">
+        var deviceID    = "e00fce68516dc5acab4ec47f";
+        var accessToken = "5d92e3b3de8450fecb6e29782621ab7650220b97";
+        var func = "led_function";
+
+        function setDir(value)
+        {
+        var requestURL = "https://api.particle.io/v1/devices/" +deviceID + "/" + func + "/";
+        $.post( requestURL, { params: value, access_token: accessToken });
+        }
+    </script>
+
+</body>
+</html>
